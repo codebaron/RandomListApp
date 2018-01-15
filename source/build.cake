@@ -26,8 +26,8 @@ Task("Restore")
 	// reference - https://bugzilla.xamarin.com/show_bug.cgi?id=58254
 
 	// HACK - this will nuget restore AND build
-	MSBuild("./RandomList.sln", new MSBuildSettings()
-		{ ArgumentCustomization = args => args.Append("/t:restore") });
+	// MSBuild("./RandomList.sln", new MSBuildSettings()
+	//	{ ArgumentCustomization = args => args.Append("/t:restore") });
 
 	// BELOW not resolving path
     //FilePath msbuildPath = Context.Tools.Resolve("msbuild.exe");
@@ -38,7 +38,7 @@ Task("Restore")
 	//});
 
 	// BELOW emits error & warning but continues build
-    // DotNetCoreRestore("./RandomList.sln");
+    DotNetCoreRestore("./RandomList.sln");
 
 	// BELOW fails very badly
 	// NuGetRestore("./RandomList.sln");
@@ -49,6 +49,8 @@ Task("Build")
     .Does(() =>
 {
 	// HACK - restore task will build
+	MSBuild("./RandomList.sln", settings =>
+		settings.SetConfiguration(configuration));
 });
 
 Task("Unit")
