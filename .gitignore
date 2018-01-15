@@ -8,3 +8,4 @@
 /source/RandomList.iOS/obj
 /source/RandomList.Android/*.bak
 /source/RandomList.Android/RandomList.Android.csproj.user
+/source/tools
