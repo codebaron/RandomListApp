@@ -22,33 +22,20 @@ Task("Restore")
     .IsDependentOn("Clean")
     .Does(() =>
 {
-    // TODO: fix so now warnings or errors emitted
+    // BELOW hack is to avoid errors
 	// reference - https://bugzilla.xamarin.com/show_bug.cgi?id=58254
-
-	// HACK - this will nuget restore AND build
-	// MSBuild("./RandomList.sln", new MSBuildSettings()
-	//	{ ArgumentCustomization = args => args.Append("/t:restore") });
-
-	// BELOW not resolving path
-    //FilePath msbuildPath = Context.Tools.Resolve("msbuild.exe");
-    //StartProcess(msbuildPath, new ProcessSettings {
-    //    Arguments = new ProcessArgumentBuilder()
-    //      .Append("./RandomList.sln")
-	//		.Append("/t:restore")
-	//});
-
-	// BELOW emits error & warning but continues build
-    DotNetCoreRestore("./RandomList.sln");
-
-	// BELOW fails very badly
-	// NuGetRestore("./RandomList.sln");
+    FilePath msbuildPath = "C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/MSBuild/15.0/Bin/msbuild.exe";
+    StartProcess(msbuildPath, new ProcessSettings {
+        Arguments = new ProcessArgumentBuilder()
+			.Append("./RandomList.sln")
+			.Append("/t:restore")
+	});
 });
 
 Task("Build")
     .IsDependentOn("Restore")
     .Does(() =>
 {
-	// HACK - restore task will build
 	MSBuild("./RandomList.sln", settings =>
 		settings.SetConfiguration(configuration));
 });
