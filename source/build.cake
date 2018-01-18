@@ -44,9 +44,11 @@ Task("Unit")
 	.IsDependentOn("Build")
     .Does(() =>
 {
-    MSTest("./**/bin/" + configuration + "/*.Tests.dll", new MSTestSettings {
-        ToolPath = "C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/Common7/IDE/MSTest.exe",
-		Category = "Unit"
+    VSTest("./**/bin/" + configuration + "/netcoreapp2.0/*.Tests.dll", new VSTestSettings {
+        ToolPath = "C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/Common7/IDE/Extensions/TestPlatform/vstest.console.exe",
+		TestCaseFilter = "TestCategory=Unit",
+		EnableCodeCoverage = true,
+		InIsolation = true
         });
 });
 
