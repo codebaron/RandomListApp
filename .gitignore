@@ -1,5 +1,6 @@
 
 /source/.vs
+/source/packages
 /source/RandomList/bin
 /source/RandomList/obj
 /source/RandomList.Android/bin
@@ -8,4 +9,6 @@
 /source/RandomList.iOS/obj
 /source/RandomList.Android/*.bak
 /source/RandomList.Android/RandomList.Android.csproj.user
+/source/RandomList.Tests/bin
+/source/RandomList.Tests/obj
 /source/tools
