@@ -14,7 +14,7 @@ namespace RandomList.ViewModels
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            this.Title = "Main Page";
+            this.Title = "My Lists";
         }
     }
 }
