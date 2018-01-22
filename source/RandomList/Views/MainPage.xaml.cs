@@ -15,5 +15,9 @@ namespace RandomList.Views
         {
             this.InitializeComponent();
         }
+
+        private void OnItemTapped(object sender, ItemTappedEventArgs args)
+        {
+        }
     }
 }

@@ -8,7 +8,9 @@
 [assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace RandomList
 {
+    using Autofac;
     using Prism.Autofac;
+    using RandomList.Services;
     using RandomList.Views;
     using Xamarin.Forms;
 
@@ -40,6 +42,13 @@ namespace RandomList
         {
             this.Builder.RegisterTypeForNavigation<NavigationPage>();
             this.Builder.RegisterTypeForNavigation<MainPage>();
+
+            this.RegisterMockServices();
+        }
+
+        protected void RegisterMockServices()
+        {
+            this.Builder.RegisterType<MockDeviceStorage>().AsImplementedInterfaces();
         }
     }
 }

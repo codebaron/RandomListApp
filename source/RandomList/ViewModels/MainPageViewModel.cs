@@ -7,14 +7,31 @@
 
 namespace RandomList.ViewModels
 {
+    using System.Collections.ObjectModel;
     using Prism.Navigation;
+    using RandomList.Infrastructure.Models;
+    using RandomList.Services.Interfaces;
 
     public class MainPageViewModel : ViewModelBase
     {
-        public MainPageViewModel(INavigationService navigationService)
+        private ObservableCollection<RandomList> randomLists;
+
+        public MainPageViewModel(
+            INavigationService navigationService,
+            IDeviceStorage deviceStorage)
             : base(navigationService)
         {
             this.Title = "My Lists";
+
+            this.randomLists = new ObservableCollection<RandomList>(deviceStorage.GetSavedRandomLists());
+        }
+
+        public ObservableCollection<RandomList> Lists
+        {
+            get
+            {
+                return this.randomLists;
+            }
         }
     }
 }

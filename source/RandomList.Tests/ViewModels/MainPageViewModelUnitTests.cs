@@ -7,10 +7,13 @@
 
 namespace RandomList.Tests.ViewModels
 {
+    using System.Collections.Generic;
     using FluentAssertions;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NSubstitute;
     using Prism.Navigation;
+    using RandomList.Infrastructure.Models;
+    using RandomList.Services.Interfaces;
     using RandomList.ViewModels;
 
     [TestClass]
@@ -22,9 +25,11 @@ namespace RandomList.Tests.ViewModels
         {
             // arrange
             var navigation = Substitute.For<INavigationService>();
+            var deviceStorage = Substitute.For<IDeviceStorage>();
+            deviceStorage.GetSavedRandomLists().Returns(new List<RandomList>());
 
             // act
-            var mainPageViewModel = new MainPageViewModel(navigation);
+            var mainPageViewModel = new MainPageViewModel(navigation, deviceStorage);
 
             // assert
             mainPageViewModel.Should().NotBeNull();
