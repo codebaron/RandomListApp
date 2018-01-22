@@ -10,7 +10,7 @@ namespace RandomList.Infrastructure.Support
     using System;
     using System.Threading;
 
-    // based on implementation from: https://stackoverflow.com/questions/273313/randomize-a-listt/1262619#1262619
+    // credit implementation from: https://stackoverflow.com/questions/273313/randomize-a-listt/1262619#1262619
     public static class ThreadSafeRandom
     {
         [ThreadStatic]
