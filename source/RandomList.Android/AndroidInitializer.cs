@@ -1,19 +1,20 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="MainPage.xaml.cs" company="Corey Baron">
+// <copyright file="AndroidInitializer.cs" company="Corey Baron">
 // Copyright (c) Corey Baron. All Rights Reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace RandomList.Views
+namespace RandomList.Droid
 {
-    using Xamarin.Forms;
+    using Autofac;
+    using Prism.Autofac;
 
-    public partial class MainPage : ContentPage
+    public class AndroidInitializer : IPlatformInitializer
     {
-        public MainPage()
+        public void RegisterTypes(ContainerBuilder builder)
         {
-            this.InitializeComponent();
+            // Register any platform specific implementations
         }
     }
 }

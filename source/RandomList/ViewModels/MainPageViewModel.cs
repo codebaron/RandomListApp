@@ -1,19 +1,20 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// -----------------------------------------------------------------------
+// <copyright file="MainPageViewModel.cs" company="Corey Baron">
+// Copyright (c) Corey Baron. All Rights Reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace RandomList.ViewModels
 {
+    using Prism.Navigation;
+
     public class MainPageViewModel : ViewModelBase
     {
-        public MainPageViewModel(INavigationService navigationService) 
-            : base (navigationService)
+        public MainPageViewModel(INavigationService navigationService)
+            : base(navigationService)
         {
-            Title = "Main Page";
+            this.Title = "Main Page";
         }
     }
 }

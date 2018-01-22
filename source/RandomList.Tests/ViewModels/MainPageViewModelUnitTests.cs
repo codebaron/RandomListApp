@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NSubstitute;
-using Prism.Navigation;
-using RandomList.ViewModels;
+﻿// -----------------------------------------------------------------------
+// <copyright file="MainPageViewModelUnitTests.cs" company="Corey Baron">
+// Copyright (c) Corey Baron. All Rights Reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace RandomList.Tests.ViewModels
 {
+    using FluentAssertions;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NSubstitute;
+    using Prism.Navigation;
+    using RandomList.ViewModels;
+
     [TestClass]
     public class MainPageViewModelUnitTests
     {
