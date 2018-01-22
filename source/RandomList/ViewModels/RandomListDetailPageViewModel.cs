@@ -7,16 +7,19 @@
 
 namespace RandomList.ViewModels
 {
-    using Prism.Mvvm;
     using Prism.Navigation;
     using RandomList.Infrastructure.Models;
 
-    public class RandomListDetailPageViewModel : BindableBase, INavigatingAware
+    public class RandomListDetailPageViewModel : ViewModelBase, INavigatingAware
     {
+        private readonly INavigationService navigationService;
+
         private RandomList randomList;
 
-        public RandomListDetailPageViewModel()
+        public RandomListDetailPageViewModel(INavigationService navigationService)
+            : base(navigationService)
         {
+            this.navigationService = navigationService;
         }
 
         public RandomList RandomList
@@ -32,11 +35,12 @@ namespace RandomList.ViewModels
             }
         }
 
-        public void OnNavigatingTo(NavigationParameters parameters)
+        public override void OnNavigatingTo(NavigationParameters parameters)
         {
             if (parameters.ContainsKey("randomlist"))
             {
                 this.RandomList = (RandomList)parameters["randomlist"];
+                this.Title = this.RandomList.Name;
             }
         }
     }
