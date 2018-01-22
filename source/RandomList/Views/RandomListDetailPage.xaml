@@ -7,6 +7,12 @@
              Title="{Binding Title}">
 
     <StackLayout>
+        <Grid WidthRequest="480" HorizontalOptions="CenterAndExpand">
+            <Button Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" WidthRequest="190" Text="Randomize" Command="{Binding RandomizeCommand}" />
+            <Button Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" WidthRequest="190" Text="Edit" />
+            <Button Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" WidthRequest="190" Text="Delete" />
+        </Grid>
+        
         <Label Text="Randomized Items:" FontSize="Large" FontAttributes="Italic" LineBreakMode="WordWrap" VerticalTextAlignment="Center" />
         <ListView ItemsSource="{Binding RandomList.ItemsRandomized}">
         </ListView>

@@ -7,6 +7,7 @@
 
 namespace RandomList.ViewModels
 {
+    using Prism.Commands;
     using Prism.Navigation;
     using RandomList.Infrastructure.Models;
 
@@ -20,7 +21,11 @@ namespace RandomList.ViewModels
             : base(navigationService)
         {
             this.navigationService = navigationService;
+
+            this.RandomizeCommand = new DelegateCommand(this.OnRandomizeCommandExecuted);
         }
+
+        public DelegateCommand RandomizeCommand { get; }
 
         public RandomList RandomList
         {
@@ -42,6 +47,13 @@ namespace RandomList.ViewModels
                 this.RandomList = (RandomList)parameters["randomlist"];
                 this.Title = this.RandomList.Name;
             }
+        }
+
+        private void OnRandomizeCommandExecuted()
+        {
+            this.RandomList.RandomizeList();
+
+            this.RaisePropertyChanged("RandomList");
         }
     }
 }
