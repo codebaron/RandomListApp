@@ -15,7 +15,8 @@ namespace RandomList.Services
     {
         private static List<RandomList> randomList = new List<RandomList>
         {
-            new RandomList("Chores", new List<string> { "Clean fridge", "Sweep floor", "Wipe counter", "Take out trash" })
+            new RandomList("Chores", new List<string> { "Clean fridge", "Sweep floor", "Wipe counter", "Take out trash" }),
+            new RandomList("Spelling Words", new List<string> { "Agog", "Capricious", "Interstellar", "Tomorrow" })
         };
 
         public List<RandomList> GetSavedRandomLists()
