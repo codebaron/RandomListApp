@@ -9,7 +9,7 @@
     <StackLayout>
         <Grid WidthRequest="480" HorizontalOptions="CenterAndExpand">
             <Button Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" WidthRequest="190" Text="Randomize" Command="{Binding RandomizeCommand}" />
-            <Button Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" WidthRequest="190" Text="Edit" />
+            <Button Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" WidthRequest="190" Text="Edit" Command="{Binding EditCommand}" />
             <Button Grid.Row="0" Grid.Column="2" HorizontalOptions="CenterAndExpand" WidthRequest="190" Text="Delete" />
         </Grid>
         

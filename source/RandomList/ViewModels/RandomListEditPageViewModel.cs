@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="RandomListDetailPageViewModel.cs" company="Corey Baron">
+// <copyright file="RandomListEditPageViewModel.cs" company="Corey Baron">
 // Copyright (c) Corey Baron. All Rights Reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
@@ -7,29 +7,20 @@
 
 namespace RandomList.ViewModels
 {
-    using Prism.Commands;
     using Prism.Navigation;
     using RandomList.Infrastructure.Models;
 
-    public class RandomListDetailPageViewModel : ViewModelBase, INavigatingAware
+    public class RandomListEditPageViewModel : ViewModelBase, INavigatingAware
     {
         private readonly INavigationService navigationService;
 
         private RandomList randomList;
 
-        public RandomListDetailPageViewModel(INavigationService navigationService)
+        public RandomListEditPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
             this.navigationService = navigationService;
-
-            this.RandomizeCommand = new DelegateCommand(this.OnRandomizeCommandExecuted);
-
-            this.EditCommand = new DelegateCommand(this.OnEditCommandExecuted);
         }
-
-        public DelegateCommand RandomizeCommand { get; }
-
-        public DelegateCommand EditCommand { get; }
 
         public RandomList RandomList
         {
@@ -51,23 +42,6 @@ namespace RandomList.ViewModels
                 this.RandomList = (RandomList)parameters["randomlist"];
                 this.Title = this.RandomList.Name;
             }
-        }
-
-        private void OnRandomizeCommandExecuted()
-        {
-            this.RandomList.RandomizeList();
-
-            this.RaisePropertyChanged("RandomList");
-        }
-
-        private void OnEditCommandExecuted()
-        {
-            var parameters = new NavigationParameters
-            {
-                { "randomlist", this.randomList }
-            };
-
-            this.navigationService.NavigateAsync("RandomListEditPage", parameters);
         }
     }
 }

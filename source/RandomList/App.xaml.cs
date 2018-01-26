@@ -43,6 +43,7 @@ namespace RandomList
             this.Builder.RegisterTypeForNavigation<NavigationPage>();
             this.Builder.RegisterTypeForNavigation<MainPage>();
             this.Builder.RegisterTypeForNavigation<RandomListDetailPage>();
+            this.Builder.RegisterTypeForNavigation<RandomListEditPage>();
 
             this.RegisterMockServices();
         }
