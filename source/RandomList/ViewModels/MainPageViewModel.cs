@@ -51,7 +51,7 @@ namespace RandomList.ViewModels
                 { "randomlist", randomList }
             };
 
-            await this.navigationService.NavigateAsync("NavigationPage/RandomListDetailPage", parameters);
+            await this.navigationService.NavigateAsync("RandomListDetailPage", parameters);
         }
 
         private async void RandomListSelected(RandomList randomList)
